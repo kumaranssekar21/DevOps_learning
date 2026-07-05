@@ -28,9 +28,20 @@ pipeline{
 			stage ("Build")
 			{
 					steps{
+							script{
+								if (fileExists("${WORKSPACE}/test_file.txt"))
+								{
+									del "test_file.txt"
+								}
+							}
 							echo "Execute the Python file."
 							bat "python Add_File.py"
 					}
+			}
+			stage ("Archive Artifacts"){
+				steps{
+					archiveArtifacts artifacts: '${WORKSPACE}/test_file.txt', fingerprint: true
+				}
 			}
 				
 			}
