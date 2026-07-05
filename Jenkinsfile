@@ -10,9 +10,8 @@ pipeline{
 			stage("Cloning"){
 					steps{
 						echo "Git Cloning"
-						sh '''
-							git clone "https://github.com/kumaranssekar21/DevOps_learning.git"
-						   '''
+						bat 'git clone "https://github.com/kumaranssekar21/DevOps_learning.git"' 
+					
 						 }
 				}
 				
