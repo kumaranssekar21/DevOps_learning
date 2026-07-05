@@ -14,6 +14,13 @@ pipeline{
 					
 						 }
 				}
+			stage ("Build")
+			{
+					steps{
+							echo "Execute the Python file."
+							bat "python Add_File.py"
+					}
+			}
 				
 			}
 		
