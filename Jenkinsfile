@@ -10,10 +10,12 @@ pipeline{
 			stage("Cloning"){
 					steps{
 						script {
-							if [-d  "DevOps_learning"], then
+							if [-d  "${DevOps_learning}"]; then
 							echo "Git Pull"
-							bat 'git pull "https://github.com/kumaranssekar21/DevOps_learning.git"' 
-							
+							bat 'git pull "https://github.com/kumaranssekar21/DevOps_learning.git"'
+							else
+								echo "Git Clone"
+								bat 'git clone "https://github.com/kumaranssekar21/DevOps_learning.git"'
 						}
 						
 					
