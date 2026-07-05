@@ -40,7 +40,7 @@ pipeline{
 			}
 			stage ("Archive Artifacts"){
 				steps{
-					archiveArtifacts artifacts: '${WORKSPACE}/test_file.txt', fingerprint: true
+					archiveArtifacts artifacts: 'test_file.txt', fingerprint: true
 				}
 			}
 				
