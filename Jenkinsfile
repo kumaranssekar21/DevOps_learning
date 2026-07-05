@@ -10,12 +10,16 @@ pipeline{
 			stage("Cloning"){
 					steps{
 						script {
-							if [-d  "${DevOps_learning}"]; then
-							echo "Git Pull"
-							bat 'git pull "https://github.com/kumaranssekar21/DevOps_learning.git"'
+							if (fileExists("${WORKSPACE}/DevOps_learning")) 
+							{
+								echo "Git Pull"
+								bat 'git pull "https://github.com/kumaranssekar21/DevOps_learning.git"'
+							}
 							else
+							{
 								echo "Git Clone"
 								bat 'git clone "https://github.com/kumaranssekar21/DevOps_learning.git"'
+							}
 						}
 						
 					
