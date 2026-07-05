@@ -31,7 +31,7 @@ pipeline{
 							script{
 								if (fileExists("${WORKSPACE}/test_file.txt"))
 								{
-									del "test_file.txt"
+									bat 'del "test_file.txt"'
 								}
 							}
 							echo "Execute the Python file."
